@@ -4,7 +4,7 @@ import cors from "cors"
 import { join } from "path"
 import mediaRouter from "./services/media/media.js"
 import { genericErrorHandler, badRequestHandler, unauthorizedHandler, notFoundHandler } from "./errorHandlers.js"
-// import filesRouter from "./services/files/index.js"
+import posterRouter from "./services/files/poster.js"
 import reviewsRouter from "./services/media/reviews.js"
 
 const server = express()
@@ -34,6 +34,7 @@ server.use(express.json())
 
 server.use("/media", mediaRouter)
 server.use('/media/:mediaId/reviews', reviewsRouter)
+server.use('/media/:mediaId', posterRouter)
 
 
 
