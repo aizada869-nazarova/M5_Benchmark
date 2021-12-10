@@ -2,9 +2,10 @@ import express from "express"
 import listEndpoints from "express-list-endpoints"
 import cors from "cors"
 import { join } from "path"
-import mediaRouter from "./services/media/index.js"
+import mediaRouter from "./services/media/media.js"
 import { genericErrorHandler, badRequestHandler, unauthorizedHandler, notFoundHandler } from "./errorHandlers.js"
 // import filesRouter from "./services/files/index.js"
+import reviewsRouter from "./services/media/reviews.js"
 
 const server = express()
 
@@ -32,6 +33,7 @@ server.use(express.json())
 // ******************** ENDPOINTS ***********************
 
 server.use("/media", mediaRouter)
+server.use('/media/:mediaId/reviews', reviewsRouter)
 
 
 

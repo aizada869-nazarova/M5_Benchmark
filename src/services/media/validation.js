@@ -6,6 +6,11 @@ export const mediaValidation = [
   body("Type").exists().withMessage("type of a movie is a mandatory field!"),
 ]
 
+export const reviewValidation = [
+    body("comment").exists().withMessage("leave your comment to our movie!"),
+    body("rate").isNumeric({min:1, max: 5}).withMessage("do not forget to rate!"),
+  ]
+
 
 // {
 //     "Title": "The Lord of the Rings: The Fellowship of the Ring",
